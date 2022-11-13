@@ -90,7 +90,7 @@ void cifra(int plaintext[], int texto_cifrado[], int funcoes[32][256], int numer
 
     /*  */
 
-    for(int i = 0; i < (numero_de_rodadas / 2); i++) {
+    for(int i = 0; i < numero_de_rodadas; i = i + 2) {
         for(int j = 0; j < 16; j++) {
             CE[j] = E[j] ^ funcoes[i][D[j]];
         }
