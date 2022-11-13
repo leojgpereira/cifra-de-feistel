@@ -57,10 +57,7 @@ void computa_funcao_da_rodada(int rodada, int chave[], int tamanho_da_chave, int
 
     for(int i = 0; i < 256; i++) {
         funcoes[rodada][i] = S[i];
-        printf("%d ", S[i]);
     }
-
-    printf("\n\n");
 }
 
 void cifra(int plaintext[], int texto_cifrado[], int funcoes[32][256], int numero_de_rodadas) {
@@ -73,22 +70,6 @@ void cifra(int plaintext[], int texto_cifrado[], int funcoes[32][256], int numer
     for(int i = 0; i < 16; i++) {
         D[i] = plaintext[i+16];
     }
-
-    /*  */
-
-    for(int i = 0; i < 16; i++) {
-        printf("%d ", E[i]);
-    }
-
-    printf("\n");
-
-    for(int i = 0; i < 16; i++) {
-        printf("%d ", D[i]);
-    }
-
-    printf("\n");
-
-    /*  */
 
     for(int i = 0; i < numero_de_rodadas; i = i + 2) {
         for(int j = 0; j < 16; j++) {
@@ -127,22 +108,6 @@ void decifra(int texto_cifrado[], int plaintext[], int funcoes[32][256], int num
     for(int i = 0; i < 16; i++) {
         D[i] = texto_cifrado[i+16];
     }
-
-    /*  */
-
-    for(int i = 0; i < 16; i++) {
-        printf("%d ", E[i]);
-    }
-
-    printf("\n");
-
-    for(int i = 0; i < 16; i++) {
-        printf("%d ", D[i]);
-    }
-
-    printf("\n");
-
-    /*  */
 
     for(int i = numero_de_rodadas; i > 0; i = i - 2) {
         for(int j = 0; j < 16; j++) {

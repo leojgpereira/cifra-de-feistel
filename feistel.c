@@ -11,8 +11,6 @@ int main() {
 
     while(scanf(" %c", &comando) != EOF) {
         if(comando == 'I') {
-            printf("Inicialização...\n");
-
             int tamanho_da_chave;
             scanf("%d %d", &numero_de_rodadas, &tamanho_da_chave);
 
@@ -42,8 +40,6 @@ int main() {
 
             inicializado = 1;
         } else if(comando ==  'C') {
-            printf("Cifragem...\n");
-
             if(inicializado == 1) {
                 for(int i = 0; i < 32; i++) {
                     scanf("%d", &plaintext[i]);
@@ -55,8 +51,8 @@ int main() {
                 }
 
                 cifra(plaintext, texto_cifrado, funcoes, numero_de_rodadas);
-
-                printf("\n");
+                
+                printf("C ");
 
                 for(int i = 0; i < 32; i++) {
                     printf("%d ", texto_cifrado[i]);
@@ -68,8 +64,6 @@ int main() {
                 return 0;
             }
         } else if(comando == 'D') {
-            printf("Decifragem...");
-
             if(inicializado == 1) {
                 for(int i = 0; i < 32; i++) {
                     scanf("%d", &texto_cifrado[i]);
@@ -79,12 +73,10 @@ int main() {
                         return 0;
                     }
                 }
-                
-                printf("\n");
 
                 decifra(texto_cifrado, plaintext, funcoes, numero_de_rodadas);
 
-                printf("\n");
+                printf("P ");
 
                 for(int i = 0; i < 32; i++) {
                     printf("%d ", plaintext[i]);
