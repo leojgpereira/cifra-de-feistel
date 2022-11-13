@@ -116,3 +116,57 @@ void cifra(int plaintext[], int texto_cifrado[], int funcoes[32][256], int numer
         texto_cifrado[i+16] = E[i];
     }
 }
+
+void decifra(int texto_cifrado[], int plaintext[], int funcoes[32][256], int numero_de_rodadas) {
+    int E[16], D[16], DE[16], DD[16];
+
+    for(int i = 0; i < 16; i++) {
+        E[i] = texto_cifrado[i];
+    }
+
+    for(int i = 0; i < 16; i++) {
+        D[i] = texto_cifrado[i+16];
+    }
+
+    /*  */
+
+    for(int i = 0; i < 16; i++) {
+        printf("%d ", E[i]);
+    }
+
+    printf("\n");
+
+    for(int i = 0; i < 16; i++) {
+        printf("%d ", D[i]);
+    }
+
+    printf("\n");
+
+    /*  */
+
+    for(int i = numero_de_rodadas; i > 0; i = i - 2) {
+        for(int j = 0; j < 16; j++) {
+            DE[j] = E[j] ^ funcoes[i-1][D[j]];
+        }
+
+        for(int j = 0; j < 16; j++) {
+            DD[j] = D[j] ^ funcoes[i-2][DE[j]];
+        }
+
+        for(int j = 0; j < 16; j++) {
+            E[j] = DE[j];
+        }
+
+        for(int j = 0; j < 16; j++) {
+            D[j] = DD[j];
+        }
+    }
+
+    for(int i = 0; i < 16; i++) {
+        plaintext[i] = D[i];
+    }
+
+    for(int i = 0; i < 16; i++) {
+        plaintext[i+16] = E[i];
+    }
+}

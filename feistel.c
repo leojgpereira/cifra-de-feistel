@@ -5,6 +5,7 @@ int main() {
     int inicializado = 0;
     int funcoes[32][256] = {0};
     int numero_de_rodadas;
+    int plaintext[32], texto_cifrado[32];
 
     char comando;
 
@@ -44,8 +45,6 @@ int main() {
             printf("Cifragem...\n");
 
             if(inicializado == 1) {
-                int plaintext[32], texto_cifrado[32];
-                
                 for(int i = 0; i < 32; i++) {
                     scanf("%d", &plaintext[i]);
 
@@ -61,6 +60,34 @@ int main() {
 
                 for(int i = 0; i < 32; i++) {
                     printf("%d ", texto_cifrado[i]);
+                }
+
+                printf("\n");
+            } else {
+                printf("E\n");
+                return 0;
+            }
+        } else if(comando == 'D') {
+            printf("Decifragem...");
+
+            if(inicializado == 1) {
+                for(int i = 0; i < 32; i++) {
+                    scanf("%d", &texto_cifrado[i]);
+
+                    if(texto_cifrado[i] < 0 || texto_cifrado[i] > 255) {
+                        printf("E\n");
+                        return 0;
+                    }
+                }
+                
+                printf("\n");
+
+                decifra(texto_cifrado, plaintext, funcoes, numero_de_rodadas);
+
+                printf("\n");
+
+                for(int i = 0; i < 32; i++) {
+                    printf("%d ", plaintext[i]);
                 }
 
                 printf("\n");
