@@ -56,7 +56,6 @@ int main() {
 
             /* Verifica se é o comando de cifragem (C) */
         } else if(comando ==  'C') {
-
             /* Verifica se o comando de inicialização (I) foi executado */
             if(inicializado == 1) {
 
@@ -91,7 +90,6 @@ int main() {
 
             /* Verifica se é o comando de decifragem (D) */
         } else if(comando == 'D') {
-
             /* Verifica se o comando de inicialização (I) foi executado */
             if(inicializado == 1) {
 
