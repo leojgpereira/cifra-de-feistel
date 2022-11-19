@@ -77,9 +77,11 @@ int main() {
                 /* Imprime o texto claro cifrado */
                 printf("C ");
 
-                for(int i = 0; i < 32; i++) {
+                for(int i = 0; i < 31; i++) {
                     printf("%d ", texto_cifrado[i]);
                 }
+
+                printf("%d", texto_cifrado[31]);
 
                 printf("\n");
             } else {
@@ -110,9 +112,11 @@ int main() {
                 /* Imprime o texto claro (decifrado) */
                 printf("C ");
 
-                for(int i = 0; i < 32; i++) {
+                for(int i = 0; i < 31; i++) {
                     printf("%d ", plaintext[i]);
                 }
+
+                printf("%d", plaintext[31]);
 
                 printf("\n");
             } else {
